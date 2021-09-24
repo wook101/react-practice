@@ -52,9 +52,13 @@ function App() {
       <div>{list.map((n)=><h3 key={n}>번호{n}</h3>)}</div>
       <div>숫자:{num}</div>
       <button onClick={add}>더하기</button> <br></br>
+      <hr/>
       <button onClick={download}>다운로드</button>
+      <hr/>
       {users.map(obj=><h3 key={obj.id}>{obj.id}번 {obj.name}입니다.</h3>)}
-      <Sub/>  
+      <hr/>
+      <Sub/>
+      <hr/>  
     </div>
 }
 
