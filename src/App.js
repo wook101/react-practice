@@ -27,22 +27,34 @@ console.log("newUser", newUser);
 
 //JSX문법
 function App() {
-  //useState
-  //let num=0;
+  console.log("App실행됨!!");
+  //1.
   const [num, setNumber] = useState(1);  //react에 hocks 라이브러리
   const add = ()=>{
     setNumber(num+1);   //리액트가 내부적으로 num값을 변경, setNumber를 호출하는 순간 return 내부가 모두 다시 그려져 랜더링 된다.
     console.log(num);
   };
 
+  //2.
+  let data = [{id:1,name:"김동욱"},
+                {id:2,name:"이주연"},
+                {id:3,name:"강수진"},
+                {id:4,name:"오지훈"}];
+  const [users, setUser] = useState(data);  //useState는 불변이기 때문에 reference가 변경될때 다시그린다.(깊은복사로 넣을경우 랜더링됨)
+  const download =()=>{
+    setUser([...data,{id:5,name:"이병헌"}]);
+  };
+      
   return <div>
       <div>안녕하세요! {name} 입니다.</div>
       <h1>나이는 {age}세 입니다.</h1>
       <hr/>
       <div>{list.map((n)=><h3 key={n}>번호{n}</h3>)}</div>
       <div>숫자:{num}</div>
-      <button onClick={add}>더하기</button> 
-      
+      <button onClick={add}>더하기</button> <br></br>
+      <button onClick={download}>다운로드</button>
+      {users.map(obj=><h3 key={obj.id}>{obj.id}번 {obj.name}입니다.</h3>)}
+      <Sub/>  
     </div>
 }
 
