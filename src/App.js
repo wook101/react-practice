@@ -11,6 +11,18 @@ const b={...a, name:"김동욱"}
 console.log(b);
 
 
+//map과 spread응용하기
+const users=[
+  {id:1,name:"이승우",phone:"1111"},
+  {id:2,name:"김지연",phone:"2222"},
+  {id:3,name:"우지호",phone:"3333"}
+];
+const updateUserDto = {id:2,name:"김동욱"};
+const newUser = users.map((obj) => obj.id===updateUserDto.id ? {...obj, ...updateUserDto} : obj ); 
+console.log("newUser",newUser);
+
+
+
 //JSX문법
 function App() {
   return <div>
