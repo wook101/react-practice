@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import Sub from './Sub';
-import {num} from './Sub';
+
 //useEffect 실습
 const App2 = ()=> {
   const [search,setSearch] = useState(0);
@@ -12,7 +11,10 @@ const App2 = ()=> {
     setData(downloadData);
   }
 
-  useEffect(()=>{ //실행시점: (1)App2()함수가 최초 실행될때(마운트 될때), (2)상태 변수가 변경될때(상태변수가 의존리스트에 등록되어 있을때), 첫번째 인자 callback, 두번째인자 dependency 의존리스트로 관리
+  //실행시점: (1)App2()함수가 최초 실행될때(마운트 될때), 
+  //          (2)상태 변수가 변경될때(상태변수가 의존리스트에 등록되어 있을때), 
+  //           첫번째 인자 callback, 두번째인자 dependency 의존리스트로 관리
+  useEffect(()=>{ 
     console.log("userEffect 실행됨!");
     download();
   },[search]);
