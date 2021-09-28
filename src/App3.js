@@ -6,19 +6,20 @@ const App = ()=>{
     const [str, setStr] = useState("abc");
     const addListSum = () =>{
         let ret=0;
-        list.forEach(n=>ret+=n);
+        list.forEach(n =>ret+=n);
         console.log('리스트 합 실행');
         return ret;
-    }
+    };
 
-    const addResult = useMemo(()=>addListSum,[list])
+    const addResult = useMemo(()=>addListSum(),[list]);
 
-    return <div>
+    return (<div>
         <button onClick={()=>setList([...list,100])}>리스트 더하기</button><br></br>
-        합계:{addResult()}
-        <button onClick={()=>{setStr("cbd")}}>문자열 변경</button><br></br>
+        <button onClick={()=>setStr("cbd")}>문자열 변경</button><br></br>
+        합계:{addResult}<br></br>
         문자열:{str}
-    </div>
+        
+    </div>)
 }
 
 
